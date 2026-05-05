@@ -39,26 +39,16 @@
     /* ── Tabs ── */
     .tabs {
       display: flex;
-      width: 100%;
-      max-width: 440px;
+      width: 100%; max-width: 440px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 4px;
-      margin-bottom: 28px;
-      gap: 4px;
+      padding: 4px; margin-bottom: 28px; gap: 4px;
     }
     .tab {
-      flex: 1;
-      padding: 9px;
-      border: none;
-      border-radius: 9px;
-      background: transparent;
-      color: var(--muted);
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.15s;
+      flex: 1; padding: 9px; border: none; border-radius: 9px;
+      background: transparent; color: var(--muted);
+      font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.15s;
     }
     .tab.active { background: #222; color: var(--text); }
 
@@ -72,20 +62,15 @@
 
     /* ── Score banner ── */
     .score-banner {
-      width: 100%; max-width: 440px;
-      border-radius: 16px;
-      padding: 22px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-      background: var(--surface);
-      border: 1px solid var(--border);
+      width: 100%; max-width: 440px; border-radius: 16px;
+      padding: 22px 24px; display: flex; align-items: center;
+      justify-content: space-between; margin-bottom: 20px;
+      background: var(--surface); border: 1px solid var(--border);
       transition: background 0.3s, border-color 0.3s;
     }
     .score-banner.progress { background: var(--green-dim); border-color: var(--green); }
     .score-banner.neutral  { background: var(--yellow-dim); border-color: var(--yellow); }
-    .score-banner.adjust   { background: var(--red-dim);   border-color: var(--red); }
+    .score-banner.adjust   { background: var(--red-dim); border-color: var(--red); }
 
     .score-number { font-size: 3.2rem; font-weight: 900; line-height: 1; color: var(--muted); transition: color 0.3s; }
     .score-banner.progress .score-number { color: var(--green-text); }
@@ -102,15 +87,10 @@
     .metrics { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 10px; }
 
     .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      transition: border-color 0.2s;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px 18px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; transition: border-color 0.2s;
     }
     .card[data-val="2"] { border-color: #27ae60; }
     .card[data-val="1"] { border-color: #6e5b00; }
@@ -124,10 +104,8 @@
     .seg { display: flex; border-radius: 9px; overflow: hidden; border: 1px solid #2a2a2a; flex-shrink: 0; }
     .seg button {
       background: #111; color: #444; border: none;
-      width: 38px; height: 36px;
-      font-size: 0.85rem; font-weight: 700; cursor: pointer;
-      border-right: 1px solid #2a2a2a;
-      transition: background 0.15s, color 0.15s;
+      width: 38px; height: 36px; font-size: 0.85rem; font-weight: 700;
+      cursor: pointer; border-right: 1px solid #2a2a2a; transition: background 0.15s, color 0.15s;
     }
     .seg button:last-child { border-right: none; }
     .seg button.sel-0 { background: #6a2020; color: #f5a8a8; }
@@ -147,22 +125,11 @@
     textarea:focus { border-color: #444; }
 
     /* ── Buttons ── */
-    .btn {
-      width: 100%; max-width: 440px;
-      padding: 13px; border-radius: 12px;
-      font-size: 0.95rem; font-weight: 600; cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-primary {
-      background: var(--surface); color: var(--muted);
-      border: 1px solid var(--border); margin-top: 12px;
-    }
+    .btn { width: 100%; max-width: 440px; padding: 13px; border-radius: 12px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .btn-primary { background: var(--surface); color: var(--muted); border: 1px solid var(--border); margin-top: 12px; }
     .btn-primary:hover { background: var(--green-dim); color: var(--green-text); border-color: var(--green); }
     .btn-primary.saved { background: var(--green-dim); color: var(--green-text); border-color: var(--green); }
-    .btn-ghost {
-      background: transparent; color: #333; border: 1px solid #1e1e1e; margin-top: 10px;
-      font-size: 0.82rem;
-    }
+    .btn-ghost { background: transparent; color: #333; border: 1px solid #1e1e1e; margin-top: 10px; font-size: 0.82rem; }
     .btn-ghost:hover { color: var(--muted); border-color: #333; }
 
     /* ── Section title ── */
@@ -172,7 +139,7 @@
       color: var(--muted); margin-top: 32px; margin-bottom: 12px;
     }
 
-    /* ── Weekly ── */
+    /* ── Weekly bar ── */
     .weekly-bar {
       width: 100%; max-width: 440px;
       background: var(--surface); border: 1px solid var(--border);
@@ -197,7 +164,73 @@
     .pip-fill.adjust   { background: #922b21; }
     .pip-score { font-size: 0.7rem; color: var(--muted); font-weight: 600; }
 
-    /* ── History ── */
+    /* ── Calendar ── */
+    .calendar-wrap {
+      width: 100%; max-width: 440px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 18px 16px;
+    }
+
+    .cal-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .cal-month {
+      font-size: 1rem; font-weight: 700; color: #fff;
+    }
+    .cal-nav {
+      background: #111; border: 1px solid var(--border); border-radius: 8px;
+      color: var(--muted); font-size: 1rem; width: 32px; height: 32px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: all 0.15s;
+    }
+    .cal-nav:hover { color: #fff; border-color: #444; }
+
+    .cal-weekdays {
+      display: grid; grid-template-columns: repeat(7, 1fr);
+      margin-bottom: 6px;
+    }
+    .cal-wd {
+      text-align: center; font-size: 0.65rem; text-transform: uppercase;
+      letter-spacing: 0.05em; color: var(--muted); padding: 4px 0;
+    }
+
+    .cal-grid {
+      display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px;
+    }
+
+    .cal-cell {
+      aspect-ratio: 1;
+      border-radius: 8px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      font-size: 0.72rem; font-weight: 600;
+      position: relative; cursor: default;
+      background: #111; color: #333;
+      transition: transform 0.1s;
+    }
+    .cal-cell.empty { background: transparent; }
+    .cal-cell.today { outline: 2px solid var(--muted); outline-offset: -2px; }
+    .cal-cell.today.has-data { outline-color: currentColor; }
+
+    .cal-cell.has-data { color: #fff; }
+    .cal-cell.progress { background: var(--green-dim); color: var(--green-text); }
+    .cal-cell.neutral  { background: var(--yellow-dim); color: var(--yellow-text); }
+    .cal-cell.adjust   { background: var(--red-dim); color: var(--red-text); }
+
+    .cal-cell .cal-day  { font-size: 0.7rem; font-weight: 700; line-height: 1; }
+    .cal-cell .cal-score { font-size: 0.65rem; opacity: 0.8; margin-top: 2px; }
+
+    .cal-legend {
+      display: flex; gap: 12px; margin-top: 14px; justify-content: center;
+    }
+    .leg-item { display: flex; align-items: center; gap: 5px; font-size: 0.7rem; color: var(--muted); }
+    .leg-dot  { width: 10px; height: 10px; border-radius: 3px; }
+    .leg-dot.progress { background: var(--green); }
+    .leg-dot.neutral  { background: var(--yellow); }
+    .leg-dot.adjust   { background: var(--red-text); }
+
+    /* ── History list ── */
     .history-list { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 8px; }
     .h-item {
       background: var(--surface); border: 1px solid var(--border);
@@ -228,7 +261,6 @@
     }
     .sync-box h3 { font-size: 0.95rem; font-weight: 700; color: #fff; }
     .sync-box p  { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
-
     .sync-textarea {
       width: 100%; height: 90px;
       background: #111; border: 1px solid #2a2a2a;
@@ -236,7 +268,6 @@
       font-family: monospace; font-size: 0.72rem;
       padding: 12px; resize: none; outline: none;
     }
-
     .sync-btn {
       padding: 11px 16px; border-radius: 10px;
       font-size: 0.85rem; font-weight: 600; cursor: pointer;
@@ -245,27 +276,20 @@
     }
     .sync-btn:hover { border-color: #444; color: #fff; }
     .sync-btn.green { background: var(--green-dim); color: var(--green-text); border-color: var(--green); }
-
-    .sync-divider { border: none; border-top: 1px solid var(--border); margin: 4px 0; }
-
-    .step-label {
-      font-size: 0.7rem; text-transform: uppercase;
-      letter-spacing: 0.1em; color: var(--muted);
-    }
+    .step-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
 
     .no-data { color: #333; font-size: 0.85rem; }
   </style>
 </head>
 <body>
 
-  <!-- Tab bar -->
   <div class="tabs">
-    <button class="tab active" onclick="showTab('today')">Today</button>
-    <button class="tab" onclick="showTab('history')">History</button>
-    <button class="tab" onclick="showTab('sync')">Sync</button>
+    <button class="tab active" onclick="showTab('today', this)">Today</button>
+    <button class="tab" onclick="showTab('history', this)">History</button>
+    <button class="tab" onclick="showTab('sync', this)">Sync</button>
   </div>
 
-  <!-- TODAY panel -->
+  <!-- TODAY -->
   <div class="panel active" id="panel-today">
     <div class="header">
       <div class="label">Daily Recovery Tracker</div>
@@ -290,8 +314,9 @@
     <button class="btn btn-primary" id="save-btn" onclick="saveToday()">Save Today</button>
   </div>
 
-  <!-- HISTORY panel -->
+  <!-- HISTORY -->
   <div class="panel" id="panel-history">
+
     <div class="section-title" style="margin-top:0">This Week</div>
     <div class="weekly-bar">
       <div class="weekly-top">
@@ -301,29 +326,47 @@
       <div class="days-row" id="days-row"></div>
     </div>
 
+    <!-- Calendar -->
+    <div class="section-title">Monthly View</div>
+    <div class="calendar-wrap">
+      <div class="cal-header">
+        <button class="cal-nav" onclick="changeMonth(-1)">&#8249;</button>
+        <div class="cal-month" id="cal-month-label"></div>
+        <button class="cal-nav" onclick="changeMonth(1)">&#8250;</button>
+      </div>
+      <div class="cal-weekdays">
+        <div class="cal-wd">Sun</div><div class="cal-wd">Mon</div><div class="cal-wd">Tue</div>
+        <div class="cal-wd">Wed</div><div class="cal-wd">Thu</div><div class="cal-wd">Fri</div>
+        <div class="cal-wd">Sat</div>
+      </div>
+      <div class="cal-grid" id="cal-grid"></div>
+      <div class="cal-legend">
+        <div class="leg-item"><div class="leg-dot progress"></div>Progress (7+)</div>
+        <div class="leg-item"><div class="leg-dot neutral"></div>Neutral (5–6)</div>
+        <div class="leg-item"><div class="leg-dot adjust"></div>Adjust (&lt;5)</div>
+      </div>
+    </div>
+
     <div class="section-title">All Days</div>
     <div class="history-list" id="history-list"></div>
 
     <button class="btn btn-ghost" onclick="exportJSON()">Export data as JSON</button>
   </div>
 
-  <!-- SYNC panel -->
+  <!-- SYNC -->
   <div class="panel" id="panel-sync">
-    <!-- Export -->
     <div class="sync-box">
       <h3>Export to another device</h3>
-      <p>Copy this code and paste it on your other device (iPhone, Mac, etc.)</p>
+      <p>Copy this code and paste it on your other device.</p>
       <div class="step-label">Your sync code</div>
       <textarea class="sync-textarea" id="export-code" readonly placeholder="Click generate to create your code"></textarea>
       <button class="sync-btn" id="copy-btn" onclick="generateAndCopy()">Generate &amp; Copy code</button>
     </div>
 
     <div class="section-title">Import from another device</div>
-
-    <!-- Import -->
     <div class="sync-box">
       <h3>Import from another device</h3>
-      <p>Paste the sync code from your other device. This will <strong style="color:#eb5757">merge</strong> the data — existing days won't be overwritten.</p>
+      <p>Paste the sync code from your other device. Existing days won't be overwritten.</p>
       <div class="step-label">Paste sync code here</div>
       <textarea class="sync-textarea" id="import-code" placeholder="Paste sync code here…"></textarea>
       <button class="sync-btn" onclick="importCode()">Import</button>
@@ -342,15 +385,13 @@
 
   const STORE_KEY = 'recovery-v2';
   const state = {};
+  let calYear, calMonth;
 
-  // ── Storage ──
   function load() {
     try { return JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); }
     catch { return {}; }
   }
   function save(data) { localStorage.setItem(STORE_KEY, JSON.stringify(data)); }
-
-  // ── Helpers ──
   function getToday() { return new Date().toISOString().split('T')[0]; }
 
   function formatDate(d) {
@@ -366,24 +407,26 @@
   function classify(score) { return score >= 7 ? 'progress' : score >= 5 ? 'neutral' : 'adjust'; }
 
   const LABELS = { progress: 'PROGRESS DAY', neutral: 'NEUTRAL DAY', adjust: 'NEEDS ADJUSTMENT' };
-  const SUBS   = { progress: '7+ — you\'re on track', neutral: '5–6 — steady, keep going', adjust: '<5 — one thing to fix tomorrow' };
+  const SUBS   = { progress: "7+ — you're on track", neutral: '5–6 — steady, keep going', adjust: '<5 — one thing to fix tomorrow' };
 
   // ── Tabs ──
-  function showTab(name) {
+  function showTab(name, el) {
     document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     document.getElementById('panel-' + name).classList.add('active');
-    event.target.classList.add('active');
-    if (name === 'history') { renderWeekly(); renderHistory(); }
-    if (name === 'sync') { document.getElementById('export-code').value = ''; document.getElementById('copy-btn').textContent = 'Generate & Copy code'; document.getElementById('copy-btn').classList.remove('green'); }
+    el.classList.add('active');
+    if (name === 'history') { renderWeekly(); renderCalendar(); renderHistory(); }
+    if (name === 'sync') {
+      document.getElementById('export-code').value = '';
+      document.getElementById('copy-btn').textContent = 'Generate & Copy code';
+      document.getElementById('copy-btn').classList.remove('green');
+    }
   }
 
   // ── Today ──
   function renderMetrics() {
-    const c = document.getElementById('metrics-container');
-    c.innerHTML = METRICS.map(({ id, icon, label, hints }) => {
-      const val = state[id];
-      const has = val !== undefined;
+    document.getElementById('metrics-container').innerHTML = METRICS.map(({ id, icon, label, hints }) => {
+      const val = state[id], has = val !== undefined;
       return `<div class="card" data-val="${has ? val : ''}">
         <div class="card-left">
           <div class="card-icon">${icon}</div>
@@ -399,20 +442,16 @@
 
   function setVal(id, v) {
     state[id] = (state[id] === v) ? undefined : v;
-    renderMetrics();
-    updateBanner();
-    markUnsaved();
+    renderMetrics(); updateBanner(); markUnsaved();
   }
 
   function updateBanner() {
     const answered = METRICS.filter(m => state[m.id] !== undefined).length;
-    const score = getScore();
-    const cls = classify(score);
-    const banner = document.getElementById('score-banner');
-    banner.className = 'score-banner' + (answered > 0 ? ` ${cls}` : '');
+    const score = getScore(), cls = classify(score);
+    document.getElementById('score-banner').className = 'score-banner' + (answered > 0 ? ` ${cls}` : '');
     document.getElementById('score-num').textContent  = answered > 0 ? score : '–';
     document.getElementById('day-type').textContent   = answered > 0 ? LABELS[cls] : 'Not started';
-    document.getElementById('day-sub').textContent    = answered > 0 ? SUBS[cls]   : 'Score your day below';
+    document.getElementById('day-sub').textContent    = answered > 0 ? SUBS[cls] : 'Score your day below';
   }
 
   function markUnsaved() {
@@ -422,34 +461,24 @@
   }
 
   function saveToday() {
-    const answered = METRICS.filter(m => state[m.id] !== undefined).length;
-    if (answered < METRICS.length) { alert('Score all 5 metrics first.'); return; }
-
+    if (METRICS.filter(m => state[m.id] !== undefined).length < METRICS.length) {
+      alert('Score all 5 metrics first.'); return;
+    }
     const data = load();
-    data[getToday()] = {
-      scores: { ...state },
-      total: getScore(),
-      adjustment: document.getElementById('adjustment').value.trim()
-    };
+    data[getToday()] = { scores: { ...state }, total: getScore(), adjustment: document.getElementById('adjustment').value.trim() };
     save(data);
-
     const btn = document.getElementById('save-btn');
-    btn.textContent = 'Saved ✓';
-    btn.classList.add('saved');
+    btn.textContent = 'Saved ✓'; btn.classList.add('saved');
   }
 
-  // ── History ──
+  // ── Weekly ──
   function renderWeekly() {
-    const data = load();
-    const today = new Date();
-    const days = [];
+    const data = load(), today = new Date(), days = [];
     for (let i = 6; i >= 0; i--) {
-      const d = new Date(today);
-      d.setDate(d.getDate() - i);
+      const d = new Date(today); d.setDate(d.getDate() - i);
       const key = d.toISOString().split('T')[0];
       days.push({ key, label: dayLabel(key), entry: data[key] });
     }
-
     const prog = days.filter(d => d.entry && classify(d.entry.total) === 'progress').length;
     document.getElementById('weekly-count-num').textContent = prog;
 
@@ -460,8 +489,7 @@
     else                { verdict = 'Keep going'; cls = 'verdict-reset'; }
 
     const vEl = document.getElementById('weekly-verdict');
-    vEl.textContent = verdict;
-    vEl.className = `weekly-verdict ${cls}`;
+    vEl.textContent = verdict; vEl.className = `weekly-verdict ${cls}`;
 
     document.getElementById('days-row').innerHTML = days.map(({ label, entry }) => {
       if (!entry) return `<div class="day-pip"><div class="pip-label">${label}</div><div class="pip-bar"></div><div class="pip-score">–</div></div>`;
@@ -474,6 +502,57 @@
     }).join('');
   }
 
+  // ── Calendar ──
+  function renderCalendar() {
+    const data = load();
+    const now = new Date();
+    if (calYear === undefined) { calYear = now.getFullYear(); calMonth = now.getMonth(); }
+
+    const monthName = new Date(calYear, calMonth, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    document.getElementById('cal-month-label').textContent = monthName;
+
+    const firstDay = new Date(calYear, calMonth, 1).getDay();
+    const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+    const todayStr = getToday();
+
+    let cells = '';
+
+    // Empty cells before first day
+    for (let i = 0; i < firstDay; i++) {
+      cells += `<div class="cal-cell empty"></div>`;
+    }
+
+    for (let d = 1; d <= daysInMonth; d++) {
+      const mm = String(calMonth + 1).padStart(2, '0');
+      const dd = String(d).padStart(2, '0');
+      const key = `${calYear}-${mm}-${dd}`;
+      const entry = data[key];
+      const isToday = key === todayStr;
+
+      if (entry) {
+        const cls = classify(entry.total);
+        cells += `<div class="cal-cell has-data ${cls}${isToday ? ' today' : ''}" title="${formatDate(key)}: ${entry.total}/10">
+          <div class="cal-day">${d}</div>
+          <div class="cal-score">${entry.total}</div>
+        </div>`;
+      } else {
+        cells += `<div class="cal-cell${isToday ? ' today' : ''}" title="${formatDate(key)}">
+          <div class="cal-day">${d}</div>
+        </div>`;
+      }
+    }
+
+    document.getElementById('cal-grid').innerHTML = cells;
+  }
+
+  function changeMonth(dir) {
+    calMonth += dir;
+    if (calMonth > 11) { calMonth = 0; calYear++; }
+    if (calMonth < 0)  { calMonth = 11; calYear--; }
+    renderCalendar();
+  }
+
+  // ── History list ──
   function renderHistory() {
     const data = load();
     const keys = Object.keys(data).sort().reverse().slice(0, 30);
@@ -486,9 +565,8 @@
         const v = scores[m.id] ?? '–';
         return `<div class="h-dot v${v}" title="${m.label}: ${v}">${v}</div>`;
       }).join('');
-      const isToday = dateStr === getToday();
       return `<div class="h-item" title="${adjustment ? 'Tomorrow: ' + adjustment : ''}">
-        <div class="h-date">${isToday ? 'Today' : formatDate(dateStr)}</div>
+        <div class="h-date">${dateStr === getToday() ? 'Today' : formatDate(dateStr)}</div>
         <div class="h-dots">${dots}</div>
         <div class="h-score ${cls}">${total}/10</div>
       </div>`;
@@ -505,59 +583,44 @@
 
   // ── Sync ──
   function generateAndCopy() {
-    const data = load();
-    const code = btoa(JSON.stringify(data));
-    const ta = document.getElementById('export-code');
-    ta.value = code;
-
-    navigator.clipboard.writeText(code).then(() => {
-      const btn = document.getElementById('copy-btn');
-      btn.textContent = 'Copied ✓';
-      btn.classList.add('green');
-    }).catch(() => {
-      ta.select();
+    const code = btoa(JSON.stringify(load()));
+    document.getElementById('export-code').value = code;
+    navigator.clipboard.writeText(code).catch(() => {
+      document.getElementById('export-code').select();
       document.execCommand('copy');
-      const btn = document.getElementById('copy-btn');
-      btn.textContent = 'Copied ✓';
-      btn.classList.add('green');
     });
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = 'Copied ✓'; btn.classList.add('green');
   }
 
   function importCode() {
     const raw = document.getElementById('import-code').value.trim();
     const statusEl = document.getElementById('import-status');
     if (!raw) { statusEl.style.color = '#eb5757'; statusEl.textContent = 'Paste a sync code first.'; return; }
-
     try {
       const incoming = JSON.parse(atob(raw));
       const existing = load();
-      // Merge: incoming fills in missing days, does not overwrite existing
       let added = 0;
-      Object.keys(incoming).forEach(k => {
-        if (!existing[k]) { existing[k] = incoming[k]; added++; }
-      });
+      Object.keys(incoming).forEach(k => { if (!existing[k]) { existing[k] = incoming[k]; added++; } });
       save(existing);
       statusEl.style.color = '#6fcf97';
-      statusEl.textContent = added > 0 ? `Imported ${added} new day${added !== 1 ? 's' : ''} ✓` : 'Already up to date — no new days added.';
+      statusEl.textContent = added > 0 ? `Imported ${added} new day${added !== 1 ? 's' : ''} ✓` : 'Already up to date.';
       document.getElementById('import-code').value = '';
     } catch {
       statusEl.style.color = '#eb5757';
-      statusEl.textContent = 'Invalid code. Make sure you copied the full code.';
+      statusEl.textContent = 'Invalid code. Make sure you copied the full thing.';
     }
   }
 
   // ── Boot ──
   document.getElementById('today-date').textContent = formatDate(getToday());
-
   const existing = load()[getToday()];
   if (existing) {
     METRICS.forEach(m => { state[m.id] = existing.scores[m.id]; });
     document.getElementById('adjustment').value = existing.adjustment || '';
     const btn = document.getElementById('save-btn');
-    btn.textContent = 'Saved ✓';
-    btn.classList.add('saved');
+    btn.textContent = 'Saved ✓'; btn.classList.add('saved');
   }
-
   renderMetrics();
   updateBanner();
   document.getElementById('adjustment').addEventListener('input', markUnsaved);
