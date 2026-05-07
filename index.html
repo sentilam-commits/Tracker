@@ -59,6 +59,7 @@
     .header { text-align: center; margin-bottom: 28px; }
     .header .label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
     .header .date  { font-size: 1.5rem; font-weight: 700; color: #fff; margin-top: 4px; }
+    .header .edit-note { font-size: 0.78rem; color: var(--muted); margin-top: 6px; min-height: 18px; }
 
     /* ── Score banner ── */
     .score-banner {
@@ -115,6 +116,51 @@
     /* ── Adjustment ── */
     .adjust-wrap { width: 100%; max-width: 440px; margin-top: 10px; }
     .field-label { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 8px; }
+    .calorie-wrap {
+      width: 100%; max-width: 440px; margin-top: 16px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px 18px;
+    }
+    .calorie-top {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 14px; margin-bottom: 14px;
+    }
+    .calorie-total { font-size: 2rem; font-weight: 850; color: #fff; line-height: 1; }
+    .calorie-total span { font-size: 0.86rem; color: var(--muted); font-weight: 600; }
+    .calorie-status { font-size: 0.78rem; color: var(--muted); margin-top: 5px; }
+    .target-field {
+      width: 96px; background: #111; border: 1px solid #2a2a2a;
+      border-radius: 9px; color: var(--text); font: inherit;
+      font-size: 0.9rem; font-weight: 650; padding: 9px 10px;
+      outline: none; text-align: right;
+    }
+    .target-field:focus,
+    .calorie-row input:focus { border-color: #444; }
+    .calorie-list { display: flex; flex-direction: column; gap: 8px; }
+    .calorie-row {
+      display: grid; grid-template-columns: 1fr 86px 34px; gap: 8px;
+      align-items: center;
+    }
+    .calorie-row input {
+      min-width: 0; background: #111; border: 1px solid #2a2a2a;
+      border-radius: 9px; color: var(--text); font: inherit;
+      font-size: 0.86rem; padding: 10px 11px; outline: none;
+    }
+    .calorie-row input::placeholder { color: #3a3a3a; }
+    .calorie-row input[type="number"] { text-align: right; }
+    .icon-btn {
+      width: 34px; height: 34px; border-radius: 9px; border: 1px solid #2a2a2a;
+      background: #111; color: var(--muted); cursor: pointer;
+      font-size: 1rem; line-height: 1; transition: all 0.15s;
+    }
+    .icon-btn:hover { color: #fff; border-color: #444; }
+    .calorie-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+    .mini-btn {
+      padding: 9px 10px; border-radius: 9px; border: 1px solid #2a2a2a;
+      background: #111; color: var(--muted); font-size: 0.78rem;
+      font-weight: 650; cursor: pointer; transition: all 0.15s;
+    }
+    .mini-btn:hover { color: var(--green-text); border-color: var(--green); background: var(--green-dim); }
     textarea {
       width: 100%; background: var(--surface); border: 1px solid var(--border);
       border-radius: 12px; color: var(--text); font-family: inherit;
@@ -205,13 +251,16 @@
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       font-size: 0.72rem; font-weight: 600;
-      position: relative; cursor: default;
+      position: relative; cursor: pointer;
       background: #111; color: #333;
-      transition: transform 0.1s;
+      transition: transform 0.1s, border-color 0.15s, color 0.15s;
     }
-    .cal-cell.empty { background: transparent; }
+    .cal-cell:hover { transform: translateY(-1px); border: 1px solid #444; }
+    .cal-cell.empty { background: transparent; cursor: default; }
+    .cal-cell.empty:hover { transform: none; border: none; }
     .cal-cell.today { outline: 2px solid var(--muted); outline-offset: -2px; }
     .cal-cell.today.has-data { outline-color: currentColor; }
+    .cal-cell.selected { box-shadow: 0 0 0 2px #fff inset; }
 
     .cal-cell.has-data { color: #fff; }
     .cal-cell.progress { background: var(--green-dim); color: var(--green-text); }
@@ -229,6 +278,7 @@
     .leg-dot.progress { background: var(--green); }
     .leg-dot.neutral  { background: var(--yellow); }
     .leg-dot.adjust   { background: var(--red-text); }
+    .cal-help { margin-top: 12px; text-align: center; color: var(--muted); font-size: 0.74rem; }
 
     /* ── History list ── */
     .history-list { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 8px; }
@@ -236,7 +286,9 @@
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 12px; padding: 13px 16px;
       display: flex; align-items: center; gap: 12px;
+      cursor: pointer;
     }
+    .h-item:hover { border-color: #444; }
     .h-date  { font-size: 0.82rem; color: var(--muted); min-width: 60px; }
     .h-dots  { display: flex; gap: 5px; flex: 1; }
     .h-dot   {
@@ -251,6 +303,7 @@
     .h-score.progress { color: var(--green-text); }
     .h-score.neutral  { color: var(--yellow-text); }
     .h-score.adjust   { color: var(--red-text); }
+    .h-cal { font-size: 0.76rem; color: var(--muted); min-width: 62px; text-align: right; }
 
     /* ── Sync panel ── */
     .sync-box {
@@ -284,9 +337,9 @@
 <body>
 
   <div class="tabs">
-    <button class="tab active" onclick="showTab('today', this)">Today</button>
-    <button class="tab" onclick="showTab('history', this)">History</button>
-    <button class="tab" onclick="showTab('sync', this)">Sync</button>
+    <button class="tab active" data-tab="today" onclick="showTab('today', this)">Today</button>
+    <button class="tab" data-tab="history" onclick="showTab('history', this)">History</button>
+    <button class="tab" data-tab="sync" onclick="showTab('sync', this)">Sync</button>
   </div>
 
   <!-- TODAY -->
@@ -294,6 +347,7 @@
     <div class="header">
       <div class="label">Daily Recovery Tracker</div>
       <div class="date" id="today-date"></div>
+      <div class="edit-note" id="edit-note"></div>
     </div>
 
     <div class="score-banner" id="score-banner">
@@ -305,6 +359,22 @@
     </div>
 
     <div class="metrics" id="metrics-container"></div>
+
+    <div class="calorie-wrap">
+      <label class="field-label">Calories today</label>
+      <div class="calorie-top">
+        <div>
+          <div class="calorie-total"><span id="calorie-total">0</span><span> kcal</span></div>
+          <div class="calorie-status" id="calorie-status">Set a target and add meals below</div>
+        </div>
+        <input class="target-field" id="calorie-target" type="number" min="0" step="50" inputmode="numeric" aria-label="Calorie target" />
+      </div>
+      <div class="calorie-list" id="calorie-list"></div>
+      <div class="calorie-actions">
+        <button class="mini-btn" onclick="addCalorieEntry()">Add item</button>
+        <button class="mini-btn" onclick="clearCalories()">Clear calories</button>
+      </div>
+    </div>
 
     <div class="adjust-wrap" style="margin-top:14px">
       <label class="field-label">1 adjustment for tomorrow</label>
@@ -345,6 +415,7 @@
         <div class="leg-item"><div class="leg-dot neutral"></div>Neutral (5–6)</div>
         <div class="leg-item"><div class="leg-dot adjust"></div>Adjust (&lt;5)</div>
       </div>
+      <div class="cal-help">Tap any day to view or edit it.</div>
     </div>
 
     <div class="section-title">All Days</div>
@@ -385,6 +456,9 @@
 
   const STORE_KEY = 'recovery-v2';
   const state = {};
+  const calories = { target: 2000, entries: [] };
+  let selectedDate = getToday();
+  let isDirty = false;
   let calYear, calMonth;
 
   function load() {
@@ -411,10 +485,11 @@
 
   // ── Tabs ──
   function showTab(name, el) {
+    el = el || document.querySelector(`[data-tab="${name}"]`);
     document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     document.getElementById('panel-' + name).classList.add('active');
-    el.classList.add('active');
+    if (el) el.classList.add('active');
     if (name === 'history') { renderWeekly(); renderCalendar(); renderHistory(); }
     if (name === 'sync') {
       document.getElementById('export-code').value = '';
@@ -445,6 +520,98 @@
     renderMetrics(); updateBanner(); markUnsaved();
   }
 
+  function resetEditor() {
+    METRICS.forEach(m => { delete state[m.id]; });
+    calories.target = 2000;
+    calories.entries = [{ name: '', amount: '' }];
+    document.getElementById('adjustment').value = '';
+  }
+
+  function loadEditor(dateStr) {
+    selectedDate = dateStr;
+    resetEditor();
+    const entry = load()[dateStr];
+
+    if (entry) {
+      METRICS.forEach(m => { state[m.id] = entry.scores[m.id]; });
+      document.getElementById('adjustment').value = entry.adjustment || '';
+      if (entry.calories) {
+        calories.target = entry.calories.target || 2000;
+        calories.entries = Array.isArray(entry.calories.entries) ? entry.calories.entries : [];
+      }
+      if (!calories.entries.length) calories.entries.push({ name: '', amount: '' });
+    }
+
+    document.getElementById('today-date').textContent = formatDate(selectedDate);
+    document.getElementById('edit-note').textContent = selectedDate === getToday() ? 'Editing today' : `Editing ${selectedDate}`;
+    renderMetrics();
+    renderCalories();
+    updateBanner();
+    markSaved(entry);
+    renderCalendar();
+  }
+
+  function editDate(dateStr) {
+    if (isDirty && !confirm('You have unsaved changes. Switch dates without saving?')) return;
+    loadEditor(dateStr);
+    showTab('today');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function getCaloriesTotal() {
+    return calories.entries.reduce((sum, item) => sum + (Number(item.amount) || 0), 0);
+  }
+
+  function renderCalories() {
+    renderCalorieSummary();
+    document.getElementById('calorie-list').innerHTML = calories.entries.map((item, index) => `
+      <div class="calorie-row">
+        <input value="${escapeAttr(item.name || '')}" placeholder="Food / meal" oninput="updateCalorieEntry(${index}, 'name', this.value)" />
+        <input value="${item.amount || ''}" type="number" min="0" step="10" inputmode="numeric" placeholder="kcal" oninput="updateCalorieEntry(${index}, 'amount', this.value)" />
+        <button class="icon-btn" aria-label="Remove calorie item" onclick="removeCalorieEntry(${index})">×</button>
+      </div>
+    `).join('');
+  }
+
+  function renderCalorieSummary() {
+    const total = getCaloriesTotal();
+    const target = Number(calories.target) || 0;
+    document.getElementById('calorie-total').textContent = total;
+    document.getElementById('calorie-target').value = target || '';
+    document.getElementById('calorie-status').textContent = target
+      ? `${Math.max(target - total, 0)} kcal left of ${target}`
+      : 'Set a target and add meals below';
+  }
+
+  function escapeAttr(value) {
+    return String(value).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+  }
+
+  function addCalorieEntry(name = '', amount = '') {
+    calories.entries.push({ name, amount });
+    renderCalories(); markUnsaved();
+  }
+
+  function updateCalorieEntry(index, key, value) {
+    calories.entries[index][key] = key === 'amount' ? Math.max(0, Number(value) || 0) : value;
+    renderCalorieSummary(); markUnsaved();
+  }
+
+  function removeCalorieEntry(index) {
+    calories.entries.splice(index, 1);
+    renderCalories(); markUnsaved();
+  }
+
+  function clearCalories() {
+    calories.entries = [];
+    renderCalories(); markUnsaved();
+  }
+
+  function updateCalorieTarget() {
+    calories.target = Math.max(0, Number(document.getElementById('calorie-target').value) || 0);
+    renderCalorieSummary(); markUnsaved();
+  }
+
   function updateBanner() {
     const answered = METRICS.filter(m => state[m.id] !== undefined).length;
     const score = getScore(), cls = classify(score);
@@ -455,9 +622,17 @@
   }
 
   function markUnsaved() {
+    isDirty = true;
     const btn = document.getElementById('save-btn');
     btn.classList.remove('saved');
-    btn.textContent = 'Save Today';
+    btn.textContent = selectedDate === getToday() ? 'Save Today' : `Save ${formatDate(selectedDate)}`;
+  }
+
+  function markSaved(entry) {
+    isDirty = false;
+    const btn = document.getElementById('save-btn');
+    btn.classList.toggle('saved', !!entry);
+    btn.textContent = entry ? 'Saved ✓' : (selectedDate === getToday() ? 'Save Today' : `Save ${formatDate(selectedDate)}`);
   }
 
   function saveToday() {
@@ -465,10 +640,21 @@
       alert('Score all 5 metrics first.'); return;
     }
     const data = load();
-    data[getToday()] = { scores: { ...state }, total: getScore(), adjustment: document.getElementById('adjustment').value.trim() };
+    data[selectedDate] = {
+      scores: { ...state },
+      total: getScore(),
+      adjustment: document.getElementById('adjustment').value.trim(),
+      calories: {
+        target: Number(calories.target) || 0,
+        total: getCaloriesTotal(),
+        entries: calories.entries.filter(item => (item.name || '').trim() || Number(item.amount) > 0)
+      }
+    };
     save(data);
-    const btn = document.getElementById('save-btn');
-    btn.textContent = 'Saved ✓'; btn.classList.add('saved');
+    markSaved(data[selectedDate]);
+    renderCalendar();
+    renderWeekly();
+    renderHistory();
   }
 
   // ── Weekly ──
@@ -528,15 +714,16 @@
       const key = `${calYear}-${mm}-${dd}`;
       const entry = data[key];
       const isToday = key === todayStr;
+      const isSelected = key === selectedDate;
 
       if (entry) {
         const cls = classify(entry.total);
-        cells += `<div class="cal-cell has-data ${cls}${isToday ? ' today' : ''}" title="${formatDate(key)}: ${entry.total}/10">
+        cells += `<div class="cal-cell has-data ${cls}${isToday ? ' today' : ''}${isSelected ? ' selected' : ''}" onclick="editDate('${key}')" title="${formatDate(key)}: ${entry.total}/10">
           <div class="cal-day">${d}</div>
           <div class="cal-score">${entry.total}</div>
         </div>`;
       } else {
-        cells += `<div class="cal-cell${isToday ? ' today' : ''}" title="${formatDate(key)}">
+        cells += `<div class="cal-cell${isToday ? ' today' : ''}${isSelected ? ' selected' : ''}" onclick="editDate('${key}')" title="${formatDate(key)}">
           <div class="cal-day">${d}</div>
         </div>`;
       }
@@ -559,15 +746,17 @@
     const c = document.getElementById('history-list');
     if (!keys.length) { c.innerHTML = `<div class="no-data">No saved days yet.</div>`; return; }
     c.innerHTML = keys.map(dateStr => {
-      const { scores, total, adjustment } = data[dateStr];
+      const { scores, total, adjustment, calories } = data[dateStr];
       const cls = classify(total);
       const dots = METRICS.map(m => {
         const v = scores[m.id] ?? '–';
         return `<div class="h-dot v${v}" title="${m.label}: ${v}">${v}</div>`;
       }).join('');
-      return `<div class="h-item" title="${adjustment ? 'Tomorrow: ' + adjustment : ''}">
+      const calText = calories && calories.total ? `<div class="h-cal">${calories.total} kcal</div>` : '';
+      return `<div class="h-item" onclick="editDate('${dateStr}')" title="${adjustment ? 'Tomorrow: ' + adjustment : ''}">
         <div class="h-date">${dateStr === getToday() ? 'Today' : formatDate(dateStr)}</div>
         <div class="h-dots">${dots}</div>
+        ${calText}
         <div class="h-score ${cls}">${total}/10</div>
       </div>`;
     }).join('');
@@ -613,17 +802,9 @@
   }
 
   // ── Boot ──
-  document.getElementById('today-date').textContent = formatDate(getToday());
-  const existing = load()[getToday()];
-  if (existing) {
-    METRICS.forEach(m => { state[m.id] = existing.scores[m.id]; });
-    document.getElementById('adjustment').value = existing.adjustment || '';
-    const btn = document.getElementById('save-btn');
-    btn.textContent = 'Saved ✓'; btn.classList.add('saved');
-  }
-  renderMetrics();
-  updateBanner();
+  loadEditor(getToday());
   document.getElementById('adjustment').addEventListener('input', markUnsaved);
+  document.getElementById('calorie-target').addEventListener('input', updateCalorieTarget);
 </script>
 </body>
 </html>
